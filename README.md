@@ -1,2 +1,2 @@
-# softuni-cpp-track
+# Softuni C++ Track
 SoftUni C++ development module.
