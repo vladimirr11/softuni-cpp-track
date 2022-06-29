@@ -8,7 +8,6 @@ std::queue<int> getInputQueue() {
 
     std::string line;
     getline(std::cin, line);
-    
     std::istringstream stream(line);
 
     int currNumber = 0;

@@ -19,13 +19,12 @@ std::queue<int> getInputOrders() {
     return orders;
 }
 
-void findTheClientWithBiggestOrder(std::queue<int>& ordersQueue) {
+void findTheClientWithBiggestOrder(std::queue<int> ordersQueue) {
     int biggestNumber = std::numeric_limits<int>::min();
 
-    std::queue<int> ordersQueueCopy = ordersQueue;
-    while (!ordersQueueCopy.empty()) {
-        int currOrder = ordersQueueCopy.front();
-        ordersQueueCopy.pop();
+    while (!ordersQueue.empty()) {
+        int currOrder = ordersQueue.front();
+        ordersQueue.pop();
         if (currOrder > biggestNumber) {
             biggestNumber = currOrder;
         }
@@ -34,27 +33,19 @@ void findTheClientWithBiggestOrder(std::queue<int>& ordersQueue) {
     std::cout << biggestNumber << std::endl;
 }
 
-int main() {
-    int totalAmountOfFood = 0;
-    std::cin >> totalAmountOfFood;
-    std::cin.ignore();
-
-    std::queue<int> ordersQueue = getInputOrders();
-
-    findTheClientWithBiggestOrder(ordersQueue);
-
+void serveClients(std::queue<int>& orders, int totalAmountOfFood) {
     bool isFoodEnough = true;
-    while (!ordersQueue.empty()) {
-        int currOrder = ordersQueue.front();
+    while (!orders.empty()) {
+        int currOrder = orders.front();
         if (currOrder <= totalAmountOfFood) {
             totalAmountOfFood -= currOrder;
-            ordersQueue.pop();
+            orders.pop();
         } else {
             std::cout << "Orders left: ";
-            while (!ordersQueue.empty()) {
-                std::cout << ordersQueue.front();
-                ordersQueue.pop();
-                if (ordersQueue.size() > 0) {
+            while (!orders.empty()) {
+                std::cout << orders.front();
+                orders.pop();
+                if (orders.size() > 0) {
                     std::cout << " ";
                 }
             }
@@ -66,6 +57,18 @@ int main() {
     if (isFoodEnough) {
         std::cout << "Orders complete" << std::endl;
     }
+}
+
+int main() {
+    int totalAmountOfFood = 0;
+    std::cin >> totalAmountOfFood;
+    std::cin.ignore();
+
+    std::queue<int> ordersQueue = getInputOrders();
+
+    findTheClientWithBiggestOrder(ordersQueue);
+
+    serveClients(ordersQueue, totalAmountOfFood);
 
     return 0;
 }

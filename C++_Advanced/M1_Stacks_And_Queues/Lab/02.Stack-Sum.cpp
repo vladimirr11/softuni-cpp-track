@@ -19,11 +19,9 @@ std::stack<int> getInputStack() {
 }
 
 void performOperationsWhitStack(std::stack<int>& stack) {
-
     bool flag = false;
 
     while (true) {
-
         if (flag == true) {
             break;
         }
@@ -58,7 +56,6 @@ void performOperationsWhitStack(std::stack<int>& stack) {
             }
         }
     }
-
 }
 
 int main() {

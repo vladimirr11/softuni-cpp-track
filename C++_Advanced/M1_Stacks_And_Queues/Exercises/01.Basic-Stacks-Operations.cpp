@@ -3,10 +3,9 @@
 #include <limits>
 
 std::stack<int> getInputStack(int number) {
-
     std::stack<int> stack;
     for (int i = 0; i < number; i++) {
-        int currNumber = 0;
+        int currNumber {};
         std::cin >> currNumber;
         stack.push(currNumber);
     }
@@ -14,13 +13,10 @@ std::stack<int> getInputStack(int number) {
     return stack;
 }
 
-std::stack<int> popNElementsFromStack(std::stack<int>& stack, int N) {
-
+void popNElementsFromStack(std::stack<int>& stack, int N) {
     for (int i = 0; i < N; i++) {
         stack.pop();
     }
-
-    return stack;
 }
 
 void findTarget(std::stack<int>& stack, int target) {
@@ -50,7 +46,6 @@ void findTarget(std::stack<int>& stack, int target) {
     } else {
         std::cout << minElem << std::endl;
     }
-
 }
 
 int main() {

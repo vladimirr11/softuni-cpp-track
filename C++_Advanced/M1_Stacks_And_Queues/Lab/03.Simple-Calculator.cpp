@@ -35,4 +35,6 @@ int main() {
     }
 
     std::cout << stack.top() << std::endl;
+
+    return 0;
 }

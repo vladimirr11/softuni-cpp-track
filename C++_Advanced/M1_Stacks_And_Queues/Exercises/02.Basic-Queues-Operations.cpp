@@ -1,8 +1,8 @@
 #include <iostream>
 #include <queue>
+#include <limits>
 
 std::queue<int> getInputStack(int number) {
-
     std::queue<int> queue;
     for (int i = 0; i < number; i++) {
         int currNumber = 0;
@@ -13,18 +13,14 @@ std::queue<int> getInputStack(int number) {
     return queue;
 }
 
-std::queue<int> popNElementsFromStack(std::queue<int>& queue, int N) {
-
+void popNElementsFromStack(std::queue<int>& queue, int N) {
     for (int i = 0; i < N; i++) {
         queue.pop();
     }
-
-    return queue;
 }
 
 void findTarget(std::queue<int>& queue, int target) {
-
-    int minElem = INT16_MAX;
+    int minElem = std::numeric_limits<int>::max();
     bool flag = false;
     while (!queue.empty()) {
         int currNum = queue.front();
@@ -45,7 +41,6 @@ void findTarget(std::queue<int>& queue, int target) {
     } else {
         std::cout << minElem << std::endl;
     }
-
 }
 
 int main() {

@@ -5,21 +5,15 @@
 std::string getInputExpression() {
     std::string parenthesisSeq;
     getline(std::cin, parenthesisSeq);
-
     return parenthesisSeq;
 }
 
-int main() {
-    std::string parenthesis = getInputExpression();
-
+bool findIfParenthesisCorrect(const std::string& parenthesis) {
     std::stack<char> parenthesisStack;
-
-    bool correctParenthesis = true;
 
     for (char ch : parenthesis) {
         if (parenthesisStack.empty() && (ch == ')' || ch == ']' || ch == '}')){
-            correctParenthesis = false;
-            break;
+            return false;
         }
         
         if (ch == '(' || ch == '[' || ch == '{') {
@@ -34,16 +28,24 @@ int main() {
             } else if (topOfStack == '{' && ch == '}') {
                 continue;
             } else {
-                correctParenthesis = false;
-                break;
+                return false;
             }
         }
     }
 
-    if (parenthesisStack.empty() && correctParenthesis) {
+    return true;
+}
+
+int main() {
+    std::string parenthesis = getInputExpression();
+
+    bool isParCorrect = findIfParenthesisCorrect(parenthesis);
+    
+    if (isParCorrect) {
         std::cout << "YES" << std::endl;
     } else {
         std::cout << "NO" << std::endl;
     }
+
     return 0;
 }

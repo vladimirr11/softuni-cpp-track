@@ -6,13 +6,9 @@
 #include <vector>
 #include <limits>
 
-const int ADD = 1;
-const int REMOVE = 2;
-const int PRINT_MAX = 3;
-const int PRINT_MIN = 4;
+enum operations { ADD = 1, REMOVE, PRINT_MAX, PRINT_MIN };
 
 std::queue<std::vector<int>> getInputQueries(int numQueries) {
-
     std::queue<std::vector<int>> queue;
 
     for (int i = 0; i < numQueries; i++) {
@@ -89,16 +85,20 @@ void parseQueries(std::queue<std::vector<int>>& queue) {
         std::vector<int> currQuery = queue.front();
         queue.pop();
         switch (currQuery[0]) {
-            case ADD: queriesStack.push(currQuery[1]);
+            case ADD: 
+                queriesStack.push(currQuery[1]);
                 break;
-            case REMOVE: if (queriesStack.empty()) {
-                continue;
-            }  
+            case REMOVE: 
+                if (queriesStack.empty()) {
+                    continue;
+                }  
                 queriesStack.pop();
                 break;
-            case PRINT_MAX: findMaxElementInStack(queriesStack);
+            case PRINT_MAX: 
+                findMaxElementInStack(queriesStack);
                 break;
-            case PRINT_MIN: findMinElementInStack(queriesStack);
+            case PRINT_MIN: 
+                findMinElementInStack(queriesStack);
                 break;
             default:
                 std::cerr << "Error, received unsuported command " << currQuery[0] << std::endl;
@@ -107,11 +107,10 @@ void parseQueries(std::queue<std::vector<int>>& queue) {
     }
 
     printStack(queriesStack);
-
 }
 
 int main() {
-    int numQueries = 0;
+    int numQueries {};
     std::cin >> numQueries;
     std::cin.ignore();
 

@@ -7,15 +7,12 @@
 std::string getInputLine() {
     std::string line;
     getline(std::cin, line);
-
     return line;
 }
 
 int main() {
     std::string inputLine = getInputLine();
-
     std::istringstream stream(inputLine);
-
     std::stack<std::string> stack;
 
     std::string currWord;
@@ -25,10 +22,12 @@ int main() {
 
     while (!stack.empty()) {
         std::string currWordToReverse = stack.top();
-        reverse(currWordToReverse.begin(), currWordToReverse.end());
+        std::reverse(currWordToReverse.begin(), currWordToReverse.end());
         std::cout << currWordToReverse << ' ';
         stack.pop();
     }
+    
+    std::cout << std::endl;
 
     return 0;
 }

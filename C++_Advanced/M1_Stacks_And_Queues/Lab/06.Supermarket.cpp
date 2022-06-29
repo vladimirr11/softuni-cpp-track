@@ -22,9 +22,7 @@ int main() {
         }
     }
 
-    size_t queueLength = queue.size();
-
-    std::cout << queueLength << " people remaining." << std::endl;
+    std::cout << queue.size() << " people remaining." << std::endl;
 
     return 0;
 }

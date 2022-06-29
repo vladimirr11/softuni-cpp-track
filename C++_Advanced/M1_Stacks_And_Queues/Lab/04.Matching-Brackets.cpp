@@ -6,7 +6,6 @@
 std::string getInputExpression() {
     std::string expression;
     getline(std::cin, expression);
-
     return expression;
 }
 
@@ -24,5 +23,6 @@ int main() {
             std::cout << subExpression << std::endl;
         }
     }
+
     return 0;
 }
