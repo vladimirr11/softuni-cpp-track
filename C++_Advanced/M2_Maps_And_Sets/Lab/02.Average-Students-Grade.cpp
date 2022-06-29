@@ -9,7 +9,7 @@ std::map<std::string, std::vector<double>> getStudentsGrades() {
     std::cin >> studentsNumber;
     std::cin.ignore();
 
-    std::map<std::string, std::vector<double>> studentsGrades = {};
+    std::map<std::string, std::vector<double>> studentsGrades {};
 
     for (int i = 0; i < studentsNumber; i++) {
         std::string iLine;
@@ -35,7 +35,7 @@ int main() {
     for (const auto& it : studentsGradesMap) {
         std::cout << it.first << " -> ";
 
-        double averageGrade = 0.0;
+        double averageGrade {};
         for (const auto& grade : it.second) {
             averageGrade += grade; 
             std::cout << grade << " ";

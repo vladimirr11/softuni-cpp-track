@@ -3,12 +3,10 @@
 #include <utility>
 #include <unordered_map>
 
-int main()
-{
+int main() {
     using namespace std;
 
-    unordered_map<string, int> cityPopulations =
-    {
+    unordered_map<string, int> cityPopulations = {
         pair<string, int>{"Gabrovo", 58950},
         pair<string, int>{"Sofia", 58950},
         pair<string, int>{"Melnik", 385},
@@ -19,8 +17,7 @@ int main()
     cityPopulations.insert(pair<string, int>("Pliska", 0));
 
     unordered_map<string, int>::iterator it;
-    for (it = cityPopulations.begin(); it != cityPopulations.end(); it++)
-    {
+    for (it = cityPopulations.begin(); it != cityPopulations.end(); it++) {
         cout << it->first << " " << it->second << endl;
     }
 
@@ -39,17 +36,13 @@ int main()
     string searchCityName;
     getline(cin, searchCityName);
 
-    unordered_map<string, int>::iterator foundCity =
-                                         cityPopulations.find(searchCityName);
+    unordered_map<string, int>::iterator foundCity = cityPopulations.find(searchCityName);
 
-    if (foundCity != cityPopulations.end())
-    {
+    if (foundCity != cityPopulations.end()) {
         cout << foundCity->first << " " << foundCity->second << endl;
-    } else
-    {
+    } else {
         cout << "No information about " << searchCityName << endl;
     }
 
     return 0;
 }
-

@@ -9,7 +9,7 @@ std::map<std::string, std::map<std::string, std::vector<std::string>>> getInputC
     std::cin >> numberInputCountries;
     std::cin.ignore();
 
-    std::map<std::string, std::map<std::string, std::vector<std::string>>> continentCountryMap = {};
+    std::map<std::string, std::map<std::string, std::vector<std::string>>> continentCountryMap {};
 
     for (int i = 0; i < numberInputCountries; i++) {
         std::string iLine;

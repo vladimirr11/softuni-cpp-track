@@ -4,10 +4,13 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
-#include <cctype>
+#include <tuple>
 
-std::vector<std::string> getInputWords() {
-    std::vector<std::string> wordsVec;
+using vec_map_tuple = std::tuple<std::vector<std::string>, std::map<std::string, int>>;
+
+vec_map_tuple getInput() {
+    std::vector<std::string> wordsVec {};
+    std::map<std::string, int> wordsMap {};
 
     std::string iLine;
     getline(std::cin, iLine);
@@ -17,9 +20,10 @@ std::vector<std::string> getInputWords() {
     while (iStream >> currWord) {
         std::transform(currWord.begin(), currWord.end(), currWord.begin(), tolower);
         wordsVec.push_back(currWord);
+        wordsMap[currWord]++;
     }
 
-    return wordsVec;
+    return std::make_tuple(wordsVec, wordsMap);
 }
 
 void filterWordsCountAndPrintResult(std::vector<std::string>& wordsVec, std::map<std::string, int>& wordsCounts) {
@@ -38,15 +42,12 @@ void filterWordsCountAndPrintResult(std::vector<std::string>& wordsVec, std::map
 }
 
 int main() {
-    std::vector<std::string> wordsVec = getInputWords();
+    vec_map_tuple myTuple = getInput();
 
-    std::map<std::string, int> wordsCounts = {};
-
-    for (const auto& word : wordsVec) {
-        wordsCounts[word]++;
-    }
-
-    filterWordsCountAndPrintResult(wordsVec, wordsCounts);
+    auto wordsVec = std::get<0>(myTuple);
+    auto wordsMap = std::get<1>(myTuple);
+    
+    filterWordsCountAndPrintResult(wordsVec, wordsMap);
     
     return 0;
 }

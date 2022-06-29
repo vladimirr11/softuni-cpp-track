@@ -8,10 +8,10 @@ std::vector<double> getInputArray() {
     std::vector<double> vec;
 
     std::string iLine;
-    getline(std::cin, iLine);
+    getline(std::cin >> std::ws, iLine);
     std::istringstream iStream(iLine);
 
-    double currNumber = 0.0;
+    double currNumber {};
     while (iStream >> currNumber) {
         vec.push_back(currNumber);
     }
@@ -19,11 +19,10 @@ std::vector<double> getInputArray() {
     return vec;
 }
 
-
 int main() {
     std::vector<double> iVec = getInputArray();
 
-    std::unordered_map<double, int> arrValuesMap = {};
+    std::unordered_map<double, int> arrValuesMap {};
 
     for (double number : iVec) {
         arrValuesMap[number]++;

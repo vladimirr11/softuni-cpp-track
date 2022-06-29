@@ -7,9 +7,9 @@
 std::set<double> getInputNumbers() {
     std::set<double> inputNumbers;
 
-    std::string iLine;
-    getline(std::cin, iLine);
-    std::istringstream iStream(iLine);
+    std::string iline;
+    getline(std::cin, iline);
+    std::istringstream iStream(iline);
 
     double currNumber;
     while (iStream >> currNumber) {

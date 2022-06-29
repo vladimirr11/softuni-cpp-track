@@ -8,8 +8,7 @@ int main() {
 
     set<int> digits { 4, 1, 4, 0, 2, 6, 9, 1, 8, 6, 2, 3, 5, 6, 7 };
 
-    for (int d : digits)
-    {
+    for (int d : digits) {
         cout << d << " ";
     }
     cout << endl << endl;
@@ -18,16 +17,13 @@ int main() {
     string sentence = "the quick brown fox jumps over the lazy dog";
     istringstream sentenceIn(sentence);
     char letter;
-    while (sentenceIn >> letter)
-    {
+    while (sentenceIn >> letter) {
         letters.insert(letter);
     }
 
     bool allEnglishLettersFound = true;
-    for (char c = 'a'; c <= 'z'; c++)
-    {
-        if (letters.find(c) == letters.end())
-        {
+    for (char c = 'a'; c <= 'z'; c++) {
+        if (letters.find(c) == letters.end()) {
             // we didn't find the current letter
             allEnglishLettersFound = false;
             break;
@@ -35,11 +31,9 @@ int main() {
     }
 
     cout << "Does \"" << sentence << "\" contain all English letters?" << endl;
-    if (allEnglishLettersFound)
-    {
+    if (allEnglishLettersFound) {
         cout << "Yes" << endl;
-    } else
-    {
+    } else {
         cout << "No" << endl;
     }
 
@@ -47,4 +41,3 @@ int main() {
 
     return 0;
 }
-

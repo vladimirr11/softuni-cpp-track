@@ -4,7 +4,7 @@
 #include <sstream>
 
 std::set<std::string> getParkingInOutTraffic() {
-    std::set<std::string> carNumbers = {};
+    std::set<std::string> carNumbers {};
 
     std::string inOut;
     std::string carNumber;

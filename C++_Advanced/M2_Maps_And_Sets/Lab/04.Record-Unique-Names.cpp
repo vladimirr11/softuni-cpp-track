@@ -7,9 +7,9 @@ std::set<std::string> getInputLisOfNames() {
     int numPeople = 0;
     std::cin >> numPeople;
 
-    std::set<std::string> inputList = {};
+    std::set<std::string> inputList {};
 
-    for (int i = 0; i <= numPeople; i++) {
+    for (int i = 0; i < numPeople; i++) {
         std::string iLine;
         getline(std::cin, iLine);
         std::istringstream iStream(iLine);

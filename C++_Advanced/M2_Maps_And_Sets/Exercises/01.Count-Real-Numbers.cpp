@@ -7,11 +7,11 @@
 std::vector<double> getInputNumbers() {
     std::vector<double> vec;
 
-    std::string iLine;
-    getline(std::cin, iLine);
-    std::istringstream iStream(iLine);
+    std::string iline;
+    getline(std::cin >> std::ws, iline);
+    std::istringstream iStream(iline);
 
-    double currNumber = 0.0;
+    double currNumber {};
     while (iStream >> currNumber) {
         vec.push_back(currNumber);
     }
@@ -19,11 +19,10 @@ std::vector<double> getInputNumbers() {
     return vec;
 }
 
-
 int main() {
     std::vector<double> iVec = getInputNumbers();
 
-    std::map<double, int> numbersCountMap = {};
+    std::map<double, int> numbersCountMap {};
 
     for (double number : iVec) {
         numbersCountMap[number]++;

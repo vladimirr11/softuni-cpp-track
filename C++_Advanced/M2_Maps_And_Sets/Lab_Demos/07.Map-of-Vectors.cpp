@@ -4,40 +4,38 @@
 #include <vector>
 #include <map>
 
-
-int main()
-{
+int main() {
     using namespace std;
-/*
-Read students in the following format:
 
-4
-Tony 2 5 5 3 6
-George 2 2 3
-Kerrigan 6 6 2 6 2 6
-Jaina 6 6 5
+    /*
+    Read students in the following format:
 
-Then reads commands in the following format:
+    4
+    Tony 2 5 5 3 6
+    George 2 2 3
+    Kerrigan 6 6 2 6 2 6
+    Jaina 6 6 5
 
-George
-Kerrigan
-end
+    Then reads commands in the following format:
 
-... and prints the grades for each student on a single line
-*/
+    George
+    Kerrigan
+    end
 
-    map<string, vector<int> > studentGrades;
+    ... and prints the grades for each student on a single line
+    */
+
+    map<string, vector<int>> studentGrades;
 
     int numStudents;
     cout << "Enter students count: ";
     cin >> numStudents;
 
     // remove the endline from the input
-    //(after we read numStudents we're at the end of that line)
+    // (after we read numStudents we're at the end of that line)
     cin.ignore();
 
-    for (int i = 0; i < numStudents; i++)
-    {
+    for (int i = 0; i < numStudents; i++) {
         string line;
         getline(cin, line);
 
@@ -47,8 +45,7 @@ end
 
         vector<int> grades;
         int grade;
-        while(lineIn >> grade)
-        {
+        while(lineIn >> grade) {
             grades.push_back(grade);
         }
 
@@ -57,22 +54,16 @@ end
 
     string command;
     getline(cin, command);
-    while(command != "end")
-    {
+    while(command != "end") {
         cout << endl;
 
-        map<string, vector<int> >::iterator gradesIt =
-                                    studentGrades.find(command);
+        map<string, vector<int> >::iterator gradesIt = studentGrades.find(command);
 
-        if (gradesIt != studentGrades.end())
-        {
-            for (int grade : gradesIt->second)
-            {
+        if (gradesIt != studentGrades.end()) {
+            for (int grade : gradesIt->second) {
                 cout << grade << " ";
             }
-        }
-        else
-        {
+        } else {
             cout << "no info" ;
         }
 

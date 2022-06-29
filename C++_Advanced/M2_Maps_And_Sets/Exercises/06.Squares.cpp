@@ -2,25 +2,28 @@
 #include <math.h>
 #include <string>
 #include <sstream>
-#include <set>
+#include <vector>
+#include <algorithm>
 
-std::set<int, std::greater<int>> getInputNumbers() {
-    std::set<int, std::greater<int>> inputNumbers;
+std::vector<int> getInputNumbers() {
+    std::vector<int> inputNumbers;
 
     std::string iLine;
     getline(std::cin, iLine);
     std::istringstream iStream(iLine);
 
-    double currNumber;
+    int currNumber;
     while (iStream >> currNumber) {
-        inputNumbers.insert(currNumber);
+        inputNumbers.push_back(currNumber);
     }
 
     return inputNumbers;
 }
 
 int main() {
-    std::set<int, std::greater<int>> numbers = getInputNumbers();
+    std::vector<int> numbers = getInputNumbers();
+
+    std::sort(numbers.begin(), numbers.end(), std::greater<int>());
 
     for (const auto& num : numbers) {
         int root = std::sqrt(num);

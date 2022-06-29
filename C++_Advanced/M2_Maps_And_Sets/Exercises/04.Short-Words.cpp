@@ -10,13 +10,13 @@ const size_t WORDS_SIZE = 5;
 std::set<std::string> getInputWords() {
     std::set<std::string> inputWords;
 
-    std::string iLine;
-    getline(std::cin, iLine);
-    std::istringstream iStream(iLine);
+    std::string iline;
+    getline(std::cin, iline);
+    std::istringstream iStream(iline);
 
     std::string word;
     while (iStream >> word) {
-        std::transform(word.begin(), word.end(), word.begin(), ::tolower);
+        std::transform(word.begin(), word.end(), word.begin(), tolower);
         inputWords.insert(word);
     }
 
