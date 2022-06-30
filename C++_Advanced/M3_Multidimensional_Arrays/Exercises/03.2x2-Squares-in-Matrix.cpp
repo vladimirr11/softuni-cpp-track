@@ -19,9 +19,7 @@ std::vector<char> get1DVecFromInput() {
 }
 
 std::vector<std::vector<char>> getInputMatrix(int numRows) {
-
     std::vector<std::vector<char>> inputMatrix(numRows);
-
     for (auto& vec1D : inputMatrix) {
         vec1D = get1DVecFromInput();
     }
@@ -30,19 +28,19 @@ std::vector<std::vector<char>> getInputMatrix(int numRows) {
 }
 
 int findOutCountOf2x2SubmatricesInMatrix(const std::vector<std::vector<char>>& matrix, int rows, int cols) {
-    int num2x2Submatrices = 0;
+    int num2x2SubMatrices = 0;
 
     for (int i = 0; i < rows - 1; i++) {
         for (int j = 0; j < cols - 1; j++) {
             if (matrix[i][j] == matrix[i + 1][j] && 
                 matrix[i][j] == matrix[i][j + 1] && 
                 matrix[i][j] == matrix[i + 1][j + 1]) {
-                num2x2Submatrices++;
+                num2x2SubMatrices++;
             }
         }
     }
 
-    return num2x2Submatrices;
+    return num2x2SubMatrices;
 }
 
 int main() {

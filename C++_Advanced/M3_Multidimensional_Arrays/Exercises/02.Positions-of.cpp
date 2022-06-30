@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <algorithm>
 
 std::vector<int> get1DVecFromInput() {
     std::vector<int> vec1D;
@@ -19,9 +20,7 @@ std::vector<int> get1DVecFromInput() {
 }
 
 std::vector<std::vector<int>> getInputMatrix(int numRows) {
-
     std::vector<std::vector<int>> inputMatrix(numRows);
-
     for (auto& vec1D : inputMatrix) {
         vec1D = get1DVecFromInput();
     }
@@ -30,7 +29,7 @@ std::vector<std::vector<int>> getInputMatrix(int numRows) {
 }
 
 std::vector<std::pair<int, int>> findCoordsOfElementInMatrix(const std::vector<std::vector<int>>& matrix,
-                                                            int numRows, int numCols) {
+                                                             int numRows, int numCols) {
     std::vector<std::pair<int, int>> coordsVec;
 
     int numToSearch = 0;
@@ -52,9 +51,9 @@ void printResult(std::vector<std::pair<int, int>>& coordsVec) {
     if (coordsVec.size() == 0) {
         std::cout << "not found" << std::endl;
     } else {
-        for (const auto& pair : coordsVec) {
-            std::cout << pair.first << " " << pair.second << std::endl;
-        }
+        std::for_each(coordsVec.begin(), coordsVec.end(), [](std::pair<int, int>& p) {
+            std::cout << p.first << " " << p.second << std::endl;
+        });
     }
 }
 

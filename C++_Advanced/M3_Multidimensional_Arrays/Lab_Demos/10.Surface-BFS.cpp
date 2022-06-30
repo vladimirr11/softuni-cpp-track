@@ -8,7 +8,7 @@
 std::vector<std::vector<char>> readMatrixFromInput() {
     int width = 0;
     int height = 0;
-    std::cin >> width >>height;
+    std::cin >> width >> height;
 
     std::vector<std::vector<char>> matrix(height, std::vector<char>(width));
     for (auto& row : matrix) {

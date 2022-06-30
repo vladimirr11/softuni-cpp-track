@@ -34,7 +34,6 @@ std::vector<std::vector<int>> get2DVecFromInput() {
 
 std::vector<std::vector<std::vector<int>>> get3DVecFromInput(int size) {
     std::vector<std::vector<std::vector<int>>> vec3D(size);
-
     for (auto& vec2D : vec3D) {
         vec2D = get2DVecFromInput();
     }
@@ -42,7 +41,7 @@ std::vector<std::vector<std::vector<int>>> get3DVecFromInput(int size) {
     return vec3D;
 }
 
-void printResult (bool areVecsEqual) {
+void printResult(bool areVecsEqual) {
     std::cout << (areVecsEqual ? "equal" : "not equal") << std::endl;
 }
 

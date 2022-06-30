@@ -7,7 +7,7 @@
 std::vector<int> readPixelsFromInput() {
     int width = 0;
     int height = 0;
-    std::cin >> width >>height;
+    std::cin >> width >> height;
 
     std::vector<int> pixels(width * height);
     for (auto& pixel : pixels) {
