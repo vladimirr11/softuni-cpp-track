@@ -3,11 +3,11 @@
 #include <cmath>
 
 std::vector<int>& generateRoots(int toNumber) {
-	std::vector<int> roots;
-	for (int i = 0; i < toNumber; i++) {
-		roots.push_back(sqrt(i));
-	}
-	return roots;
+    std::vector<int> roots;
+    for (int i = 0; i < toNumber; i++) {
+        roots.push_back(sqrt(i));
+    }
+    return roots;
 }
 
 int main() {
@@ -27,9 +27,9 @@ int main() {
     // does not place a strict requirement on what should happen, hence different
     // compilers can create code that behaves differently in different situations.
     std::vector<int> otherVector { 42, 13, 69 };
-	std::cout << rootsRef[4] << std::endl;
+    std::cout << rootsRef[4] << std::endl;
 
-	std::cout << &rootsRef;
+    std::cout << &rootsRef;
 
-	return 0;
+    return 0;
 }
