@@ -16,11 +16,9 @@ const char COORDS_DELIMITER = ',';
 
 
 std::vector<std::array<std::string, ARR_SIZE>> readInputCoordinates() {
-
     std::vector<std::array<std::string, ARR_SIZE>> coordsVec {};
 
     std::array<std::string, ARR_SIZE> coords {};
-
     while (true) {
         std::string line;
         getline(std::cin, line);
@@ -43,15 +41,12 @@ std::vector<std::array<std::string, ARR_SIZE>> readInputCoordinates() {
 
 std::vector<std::string> readQuery() {
     std::vector<std::string> queryVec {};
-
     while (true) {
         std::string line;
         getline(std::cin, line);
-
         if (line == STOP_READ_DEL) {
             break;
         }
-
         queryVec.push_back(line);
     }
 
@@ -59,14 +54,12 @@ std::vector<std::string> readQuery() {
 }
 
 void findCoordsOfQueryAndPrintResult(std::vector<std::array<std::string, ARR_SIZE>>& coordsVec,
-                                    std::vector<std::string>& queryVec) {
-    
+                                     std::vector<std::string>& queryVec) {
     for (auto query : queryVec) {
         std::size_t found = query.find(STOP_READ_DEL);
 
         std::string latCoords;
         std::string longCoords;
-
         if (found != std::string::npos) {
             std::istringstream istr(query);
             istr >> latCoords >> longCoords;
@@ -75,8 +68,7 @@ void findCoordsOfQueryAndPrintResult(std::vector<std::array<std::string, ARR_SIZ
                     std::cout << arr[CITY_IDX] << "," << arr[LATITUDE_IDX] << "," << arr[LONGITUDE_IDX] << std::endl;
                 }
             }
-        }
-        else {
+        } else {
             for (auto arr : coordsVec) {
                 if (arr[CITY_IDX] == query) {
                     std::cout << arr[CITY_IDX] << "," << arr[LATITUDE_IDX] << "," << arr[LONGITUDE_IDX] << std::endl;

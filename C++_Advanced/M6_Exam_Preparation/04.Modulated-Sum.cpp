@@ -5,16 +5,10 @@
 #include <array>
 
 std::vector<std::vector<int>> readInputMatrix(int numRows, int numCols) {
-
-    std::vector<std::vector<int>> matrix {};
-
-    matrix.resize(numRows * numCols);
-
+    std::vector<std::vector<int>> matrix(numRows, std::vector<int>(numCols));
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            int currNum = 0;
-            std::cin >> currNum;
-            matrix[i].push_back(currNum);
+            std::cin >> matrix[i][j];
         }
     }
 
@@ -22,8 +16,7 @@ std::vector<std::vector<int>> readInputMatrix(int numRows, int numCols) {
 }
 
 void sumElOfMatrixByColumnAndDevideByModulo(const std::vector<std::vector<int>>& matrix, 
-                            const int numRows, const int numCols, const int modulo) {
-
+                                            const int numRows, const int numCols, const int modulo) {
     for (int colIdx = 0; colIdx < numCols; colIdx++) {
         int sumColEls = 0;
         for (int rowIdx = 0; rowIdx < numRows; rowIdx++) {

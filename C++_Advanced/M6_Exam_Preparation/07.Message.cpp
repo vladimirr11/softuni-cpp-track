@@ -42,8 +42,7 @@ std::vector<std::pair<int, int>> readQueries() {
 }
 
 void prepareAndPrintSolution(std::unordered_map<std::string, int>& messageWordsCount,
-                            std::vector<std::pair<int, int>>& quereisVec) {
-    
+                             std::vector<std::pair<int, int>>& quereisVec) {
     for (auto query : quereisVec) {
         std::vector<std::string> currQuery {};
         for (auto pair : messageWordsCount) {
@@ -59,7 +58,7 @@ int main() {
     std::unordered_map<std::string, int> messageWordsCount = readInputAndConvertToMap();
 
     std::vector<std::pair<int, int>> quereisVec = readQueries();
-
+    
     prepareAndPrintSolution(messageWordsCount, quereisVec);
 
     return 0;

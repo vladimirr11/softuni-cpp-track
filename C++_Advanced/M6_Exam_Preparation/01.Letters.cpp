@@ -10,7 +10,6 @@ std::vector<std::string> readText () {
 
     std::string text;
     getline(std::cin, text);
-
     std::istringstream istream(text);
 
     std::string word;
@@ -44,16 +43,17 @@ std::vector<char> readChars () {
 }
 
 std::vector<std::set<std::string>> prepareSolution(std::vector<std::string>& wordsVec, 
-                            std::vector<char>& charsVec) {
-
+                                                   std::vector<char>& charsVec) {
     std::vector<std::set<std::string>> vecsForPrint {};
 
     for (auto ch : charsVec) {
         std::set<std::string> wordsSet {};
         for (auto word : wordsVec) {
             std::string wordCopy = word;
-            std::transform(wordCopy.begin(), wordCopy.end(), wordCopy.begin(), 
-                                [](unsigned char c){return std::tolower(c);});
+            std::transform(wordCopy.begin(), wordCopy.end(), wordCopy.begin(), [](unsigned char c){ 
+                return std::tolower(c);
+            });
+
             size_t found = wordCopy.find(ch);
             if (found != std::string::npos) {
                 wordsSet.insert(word);
@@ -72,7 +72,8 @@ void printSolution(const std::vector<std::set<std::string>>& vec2DWithSets) {
     for (auto set : vec2DWithSets) {
         for (auto word : set) {
             std::cout << word << ' ';
-        } std::cout << std::endl;
+        } 
+        std::cout << std::endl;
     }
 }
 

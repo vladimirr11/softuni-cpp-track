@@ -4,37 +4,30 @@
 #include <sstream>
 #include <stack>
 
-std::vector<std::vector<char>> readInputMatrix(int numRows, int numCols) {
+using Matrix = std::vector<std::vector<char>>;
 
-    std::vector<std::vector<char>> matrix {};
-
-    matrix.resize(numRows);
-
+Matrix readInputMatrix(int numRows, int numCols) {
+    Matrix matrix(numRows, std::vector<char>(numCols));
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numCols; j++) {
-            char currChar;
-            std::cin >> currChar;
-            matrix[i].push_back(currChar);
+            std::cin >> matrix[i][j];
         }
     }
 
     return matrix;
 }
 
-bool isInBoundary(const std::vector<std::vector<char>>& matrix, int currX, int currY) {
+bool isInBoundary(const Matrix& matrix, int currX, int currY) {
     if (0 > currX) return false;
     if (0 > currY) return false;
-    if (currX >= int(matrix.size())) return false;
-    if (currY >= int(matrix[0].size())) return false;
+    if (currX >= static_cast<int>(matrix.size())) return false;
+    if (currY >= static_cast<int>(matrix[0].size())) return false;
 
     return true;
 }
 
-void DFS(std::vector<std::vector<char>>& matrix, const char allowedChar, 
-                            const char fillChar, int currRow, int currCol) {
-    
+void DFS(Matrix& matrix, const char allowedChar, const char fillChar, int currRow, int currCol) {
     const bool isInMatrix = isInBoundary(matrix, currRow, currCol);
-
     if (!isInMatrix) {
         return;
     }
@@ -52,7 +45,7 @@ void DFS(std::vector<std::vector<char>>& matrix, const char allowedChar,
 
 }
 
-void printSolution(std::vector<std::vector<char>>& matrix) {
+void printSolution(Matrix& matrix) {
     for (auto vec : matrix) {
         for (auto ch : vec) {
             std::cout << ch;
@@ -65,7 +58,7 @@ int main() {
     int numRows, numCols, modulo;
     std::cin >> numRows >> numCols;
 
-    std::vector<std::vector<char>> matrix = readInputMatrix(numRows, numCols);
+    Matrix matrix = readInputMatrix(numRows, numCols);
 
     char fillChar;
     std::cin >> fillChar;

@@ -42,7 +42,6 @@ std::vector<std::string> readWinnerTeams() {
 }
 
 std::map<std::string, int> makePlayersMap(std::map<std::string, std::vector<std::string>>& teamsMap) {
-    
     std::map<std::string, int> playersMap {};
      for (const auto& team : teamsMap) {
         for (const auto& player : team.second) {
@@ -55,8 +54,7 @@ std::map<std::string, int> makePlayersMap(std::map<std::string, std::vector<std:
 
 void prepareSolutionAndPrintResult(std::map<std::string, std::vector<std::string>>& teamsMap, 
                                    std::vector<std::string>& winnersVec, 
-                                   std::map<std::string, int>& playersMap) {
-                    
+                                   std::map<std::string, int>& playersMap) {                    
     for (const auto winner : winnersVec) {
         for (auto player : teamsMap[winner]) {
             playersMap[player]++;
@@ -67,7 +65,6 @@ void prepareSolutionAndPrintResult(std::map<std::string, std::vector<std::string
         std::cout << pl.second << " ";
     }
     std::cout << std::endl;
-
 }
 
 int main() {
