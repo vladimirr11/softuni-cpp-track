@@ -3,7 +3,7 @@
 int main() {
 	using namespace std;
 
-	int arr[3]{ 13, 42, 69 };
+	int arr[3] { 13, 42, 69 };
 
 	cout << 1[arr] << endl;
 

@@ -13,7 +13,8 @@ int main() {
 
 	cout << "f()" << " code at " << &f << endl;
 
-	// NOTE: there are different abs functions (int, double...), so we specify we want the one returning double and accepting 1 double parameter
+	// NOTE: there are different overloads of the abs functions (int, double...), 
+    // so we specify the particular overload
 	double(&absAddress)(double) = abs;
 	cout << "abs(double)" << " code at " << absAddress << endl;
 

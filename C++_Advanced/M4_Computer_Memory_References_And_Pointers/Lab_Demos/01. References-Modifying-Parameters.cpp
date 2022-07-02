@@ -25,7 +25,7 @@ int main() {
 	swap(x, y); // x == 42, y == 13
 	std::cout << x << " " << y << std::endl;
 
-	std::list<int> values{ 1, -69, -4, 42, -2, 13, -9 };
+	std::list<int> values { 1, -69, -4, 42, -2, 13, -9 };
 	removeNegative(values); // values{ 1, 42, 13 };
 
 	for (int v : values) {

@@ -13,13 +13,12 @@ int* findFirstNegativePtr(int numbers[], int length) {
 int main() {
 	using namespace std;
 
-	int numbers[]{ 1, 5, -1, 12 };
+	int numbers[] { 1, 5, -1, 12 };
 
 	int* negativePtr = findFirstNegativePtr(numbers, 4);
 	if (negativePtr != nullptr) {
 		cout << *negativePtr << endl;
-	}
-	else {
+	} else {
 		cout << "no negative numbers" << endl;
 	}
 
